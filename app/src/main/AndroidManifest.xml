@@ -1,0 +1,181 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <uses-feature
+        android:name="android.hardware.telephony"
+        android:required="false" /> <!-- Devices running Android 12L (API level 32) or lower -->
+    <uses-permission
+        android:name="android.permission.READ_EXTERNAL_STORAGE"
+        android:maxSdkVersion="32" /> <!-- Devices running Android 13 (API level 33) or higher -->
+    <uses-permission android:name="android.permission.READ_MEDIA_IMAGES" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VIDEO" />
+    <uses-permission android:name="android.permission.READ_MEDIA_VISUAL_USER_SELECTED" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.CALL_PHONE" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+
+    <application
+        android:name=".Config.MyApplication"
+        android:allowBackup="true"
+        android:dataExtractionRules="@xml/data_extraction_rules"
+        android:fullBackupContent="@xml/backup_rules"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="@mipmap/ic_launcher_round"
+        android:supportsRtl="true"
+        android:theme="@style/Theme.Disability"
+        tools:targetApi="31">
+        <activity
+            android:name=".Activitys.MyTeamsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.BlogDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.BlogActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.EnquiryProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.EnquiryPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.ConmanyInfoActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.MapLocationActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Logins.CreatePasswordActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.ImageZoomActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.UsefulLinksDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.JobAlerts.JobAlertDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Categorys.CategoriesBasedItemsListActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Sales.ProductDetaisActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Categorys.PostCategoriesDetailsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Sales.EditProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Categorys.EditPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Sales.AddProductActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Categorys.AddPostActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.UsefulLinksActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.HelpAndSupportActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.FaqActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.PrivacyPolicyActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.TermsAndConditionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Sales.MyProductsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.Categorys.MyPostsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.AskQuestionsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.ContactUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.AboutUsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.JobAlerts.JobAlertsActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.EditProfileActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.NotificationActivity"
+            android:exported="true" />
+        <activity
+            android:name=".Logins.OTPActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.DashBoardActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Logins.ForgotActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Logins.RegisterActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Logins.LoginActivity"
+            android:exported="false" />
+        <activity
+            android:name=".MainActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.SplashActivity"
+            android:exported="true"
+            android:launchMode="singleTop">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+
+        <service
+            android:name=".MyFirebaseMessagingService"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="com.google.firebase.MESSAGING_EVENT" />
+            </intent-filter>
+        </service>
+
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_icon"
+            android:resource="@drawable/ic_notification" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_color"
+            android:resource="@color/colorPrimary" />
+        <meta-data
+            android:name="com.google.firebase.messaging.default_notification_channel_id"
+            android:value="@string/notificatin_channel" />
+        <meta-data
+            android:name="com.onesignal.NotificationAccentColor.DEFAULT"
+            android:value="@color/colorPrimary" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A" />
+    </application>
+
+</manifest>

@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white"
+        android:orientation="vertical">
+
+        <include
+            layout="@layout/top_layout"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="170dp"
+                    android:layout_gravity="center_horizontal"
+                    android:src="@drawable/ic_launcher_background"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        app:tint="@color/black"
+                        android:src="@drawable/marker_ic"
+                        android:scaleType="fitXY"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginEnd="15dp"
+                        android:layout_marginStart="15dp"
+                        android:padding="5dp"
+                        android:fontFamily="@font/teachers_medium"
+                        android:textSize="18dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:text="Address"/>
+
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtAddress"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginEnd="15dp"
+                    android:padding="5dp"
+                    android:fontFamily="@font/teachers_medium"
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text"
+                    android:text="H-150, Golden Royal Apartments, Banjara Hills, Hyderabad-500030, Telangana, India"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        app:tint="@color/black"
+                        android:src="@drawable/call_ic"
+                        android:scaleType="fitXY"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:fontFamily="@font/teachers_medium"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:text="Phone Number"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtPhone"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/teachers_medium"
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text"
+                    android:text="+91 98765 43210"/>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:orientation="horizontal">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="30dp"
+                        android:layout_height="30dp"
+                        android:layout_gravity="center_vertical"
+                        android:layout_marginStart="15dp"
+                        app:tint="@color/black"
+                        android:src="@drawable/email_ic"
+                        android:scaleType="fitXY"/>
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="15dp"
+                        android:fontFamily="@font/teachers_medium"
+                        android:textSize="20dp"
+                        android:layout_gravity="center_vertical"
+                        android:textColor="@color/black"
+                        android:text="Email Address"/>
+                </LinearLayout>
+                <TextView
+                    android:id="@+id/txtEmail"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginStart="45dp"
+                    android:layout_marginBottom="25dp"
+                    android:fontFamily="@font/teachers_medium"
+                    android:textSize="18dp"
+                    android:layout_gravity="center_vertical"
+                    android:textColor="@color/text"
+                    android:text="davidjacson@gmail.com"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp"
+                    android:fontFamily="@font/teachers_bold"
+                    android:textSize="23dp"
+                    android:textAlignment="center"
+                    android:textColor="@color/black"
+                    android:text="Follow Us"/>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginBottom="15dp">
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/txtFacebook"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/facebook"
+                        android:layout_marginEnd="25dp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/txtTwitter"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:src="@drawable/twitter"
+                        android:layout_marginEnd="25dp"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/txtInstagram"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        android:layout_marginEnd="25dp"
+                        android:src="@drawable/instagram"/>
+
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:visibility="gone"
+                        android:id="@+id/txtWhatsApp"
+                        android:layout_width="50dp"
+                        android:layout_height="50dp"
+                        app:tint="@color/green"
+                        android:src="@drawable/whatsapp_ic"/>
+
+                </LinearLayout>
+            </LinearLayout>
+        </ScrollView>
+
+    </LinearLayout>
+
+</layout>

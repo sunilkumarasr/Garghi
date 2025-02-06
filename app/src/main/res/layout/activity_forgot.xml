@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/splash_bg">
+        <include
+            layout="@layout/top_layout"/>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:scrollbars="none">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:layout_gravity="center"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginBottom="20dp"
+                    android:src="@drawable/logo_name_ic"/>
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    android:layout_width="130dp"
+                    android:layout_height="130dp"
+                    android:layout_gravity="center"
+                    android:layout_marginBottom="25dp"
+                    android:src="@drawable/forgot_password_logo"/>
+
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Forgot Password?"
+                    android:textColor="@color/blue"
+                    android:fontFamily="@font/teachers_bold"
+                    android:textSize="25sp"
+                    android:textAlignment="center"/>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="Don't worry, it happens to the best of us."
+                    android:textColor="@color/text"
+                    android:fontFamily="@font/teachers_medium"
+                    android:textSize="14sp"
+                    android:textAlignment="center"/>
+
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginEnd="25dp"
+                    style="@style/MyDenseOutlined"
+                    app:hintEnabled="false"
+                    app:boxBackgroundColor="@color/box_gray"
+                    app:boxStrokeColor="@color/box_border"
+                    app:boxStrokeWidth="0dp">
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/emailEdit"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="@font/teachers_regular"
+                        android:singleLine="true"
+                        android:textSize="15sp"
+                        android:hint="Enter your email"
+                        android:inputType="textEmailAddress"
+                        android:textColorHint="@color/hintcolor"/>
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="25dp"
+                    android:layout_marginTop="35dp">
+                    <TextView
+                        android:id="@+id/txtLogin"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:text="Back to login"
+                        android:fontFamily="@font/teachers_medium"
+                        android:textColor="@color/colorPrimary"
+                        android:textSize="15sp"/>
+
+                    <androidx.cardview.widget.CardView
+                        android:id="@+id/cardForgot"
+                        android:layout_width="170dp"
+                        android:layout_height="45dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_gravity="center"
+                        android:layout_marginStart="25dp"
+                        android:layout_marginEnd="25dp"
+                        android:layout_marginTop="25dp"
+                        android:layout_marginBottom="25dp"
+                        app:cardBackgroundColor="#A020F0"
+                        app:cardCornerRadius="35dp"
+                        app:cardElevation="3dp">
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_gravity="center"
+                            android:text="Continue"
+                            android:fontFamily="@font/teachers_medium"
+                            android:textColor="@color/white"
+                            android:textSize="18sp"
+                            android:layout_centerVertical="true"/>
+                    </androidx.cardview.widget.CardView>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+        </ScrollView>
+    </RelativeLayout>
+
+
+</layout>

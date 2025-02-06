@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#1793CF</color>
+    <color name="darkcolorPrimary">#1793CF</color>
+    <color name="black">#000000</color>
+    <color name="txtHeader">#474747</color>
+    <color name="txtdes">#5F5F5F</color>
+    <color name="text">#333333</color>
+    <color name="black3">#888888</color>
+    <color name="white">#FFFFFF</color>
+    <color name="gray">#999999</color>
+    <color name="lightGray">#F5F5F5</color>
+    <color name="splashcolor">#02bbfd</color>
+    <color name="selectedRed">#E84D1A</color>
+    <color name="statusBarBg">#4548B9</color>
+    <color name="lightGreen">#E8FFEA</color>
+    <color name="green">#11D171</color>
+    <color name="pending">#DBBD28</color>
+    <color name="box_border">#1793cf</color>
+    <color name="box_gray">#f2f2f2</color>
+    <color name="hintcolor">#999999</color>
+    <color name="blue">#1793CF</color>
+    <color name="trance">#00000000</color>
+    <color name="bottom_home">#18a1cf</color>
+    <color name="bottom_search">#e6f5fd</color>
+    <color name="bottom_myservice">#e6f5fd</color>
+    <color name="bottom_profile">#e6f5fd</color>
+</resources>
