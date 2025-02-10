@@ -48,18 +48,15 @@ class HomeCategoriesAdapter(
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {
-        val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.home_all_categories_items_list, parent, false)
-        return ViewHolder(view)
-//        return if (viewType == NORMAL_ITEM) {
-//            val view = LayoutInflater.from(parent.context)
-//                .inflate(R.layout.home_all_categories_items_list, parent, false)
-//            ViewHolder(view)
-//        } else {
-//            val view = LayoutInflater.from(parent.context)
-//                .inflate(R.layout.more_item_layout, parent, false) // Custom layout for the "more" item
-//            MoreViewHolder(view)
-//        }
+        return if (viewType == NORMAL_ITEM) {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.home_all_categories_items_list, parent, false)
+            ViewHolder(view)
+        } else {
+            val view = LayoutInflater.from(parent.context)
+                .inflate(R.layout.more_item_layout, parent, false) // Custom layout for the "more" item
+            MoreViewHolder(view)
+        }
     }
 
     override fun onBindViewHolder(holder: RecyclerView.ViewHolder, position: Int) {
@@ -68,14 +65,13 @@ class HomeCategoriesAdapter(
             Glide.with(holder.imgLogo).load(item.category_image).into(holder.imgLogo)
             holder.txtTitle.text = item.category
         }
-//        else if (holder is MoreViewHolder) {
-//            holder.imgMore.setImageResource(R.drawable.more)
-//        }
+        else if (holder is MoreViewHolder) {
+            holder.imgMore.setImageResource(R.drawable.more)
+        }
     }
 
     override fun getItemCount(): Int {
-        // return items.size + 1 // Add 1 for the "more" icon
-        return items.size
+         return items.size + 1
     }
 }
 

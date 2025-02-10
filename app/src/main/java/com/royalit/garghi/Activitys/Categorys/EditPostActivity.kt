@@ -116,7 +116,7 @@ class EditPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), false)
 
         post_id= intent.getStringExtra("post_id").toString()
 
@@ -225,8 +225,8 @@ class EditPostActivity : AppCompatActivity() {
         // Load cover image
         Glide.with(binding.imgCover)
             .load(RetrofitClient.Image_Path + postDetails.data?.product?.image)
-            .placeholder(R.drawable.home_bannes)
-            .error(R.drawable.home_bannes)
+            .placeholder(R.drawable.ic_launcher_background)
+            .error(R.drawable.ic_launcher_background)
             .into(binding.imgCover)
 
         // Debug the images list

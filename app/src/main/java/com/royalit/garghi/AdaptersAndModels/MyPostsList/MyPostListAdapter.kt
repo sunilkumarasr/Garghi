@@ -78,7 +78,7 @@ class MyPostListAdapter(
 
         holder.txtTitle.text = item.title
         holder.txtPostDate.text = "Posted On "+item.created_date
-        Glide.with(holder.imgLogo).load(item.image).error(R.drawable.vision_dummy).into(holder.imgLogo)
+        Glide.with(holder.imgLogo).load(item.image).error(R.drawable.ic_launcher_background).into(holder.imgLogo)
 
     }
 

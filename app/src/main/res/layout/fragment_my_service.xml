@@ -37,12 +37,14 @@
                     android:layout_gravity="center_vertical"
                     android:src="@drawable/search_ic"
                     android:layout_marginStart="15dp"/>
-                <TextView
+                <EditText
+                    android:id="@+id/editSearch"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
-                    android:text="Search here"
-                    android:textColor="@color/txtdes"
+                    android:hint="Search here"
+                    android:background="@null"
+                    android:textColorHint="@color/txtdes"
                     android:textSize="15sp"
                     android:fontFamily="@font/teachers_semibold"/>
             </LinearLayout>

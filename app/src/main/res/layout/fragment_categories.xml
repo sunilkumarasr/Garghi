@@ -6,23 +6,54 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#F2F2F2">
+        android:background="@color/white">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
 
-            <TextView
+            <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="45dp"
-                android:fontFamily="@font/teachers_semibold"
-                android:gravity="center"
-                android:text="All Categories"
-                android:textAlignment="center"
-                android:textColor="@color/blue"
-                android:textSize="16sp" />
-
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="#e6f5fd">
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:text="All Categories"
+                    android:textColor="@color/black"
+                    android:padding="10dp"
+                    android:textSize="25sp"
+                    android:fontFamily="@font/teachers_semibold"/>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp"
+                    android:layout_gravity="center_vertical"
+                    android:gravity="center_vertical"
+                    android:background="@drawable/round_blue_edge"
+                    android:layout_marginStart="15dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="20dp"
+                    android:layout_marginEnd="15dp">
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:layout_width="25dp"
+                        android:layout_height="25dp"
+                        android:layout_gravity="center_vertical"
+                        android:src="@drawable/search_ic"
+                        android:layout_marginStart="15dp"/>
+                    <EditText
+                        android:id="@+id/editSearch"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="10dp"
+                        android:hint="Search here"
+                        android:background="@null"
+                        android:textColorHint="@color/txtdes"
+                        android:textSize="15sp"
+                        android:fontFamily="@font/teachers_semibold"/>
+                </LinearLayout>
+            </LinearLayout>
             <androidx.recyclerview.widget.RecyclerView
                 android:id="@+id/recyclerview"
                 android:layout_width="match_parent"
@@ -31,23 +62,6 @@
 
         </LinearLayout>
 
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardAdd"
-            android:layout_width="55dp"
-            android:layout_height="55dp"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:layout_marginEnd="25dp"
-            android:layout_marginBottom="25dp"
-            app:cardBackgroundColor="@color/blue"
-            app:cardCornerRadius="35dp">
-
-            <androidx.appcompat.widget.AppCompatImageView
-                android:layout_width="35dp"
-                android:layout_height="35dp"
-                android:layout_gravity="center"
-                android:src="@drawable/add_ic" />
-        </androidx.cardview.widget.CardView>
     </RelativeLayout>
 
 </layout>

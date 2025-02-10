@@ -41,7 +41,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="200dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/home_bannes" />
+                    android:src="@drawable/ic_launcher_background" />
 
                 <androidx.cardview.widget.CardView
                     android:layout_width="match_parent"

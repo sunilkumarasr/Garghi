@@ -12,6 +12,7 @@ import androidx.appcompat.app.AlertDialog
 import com.bumptech.glide.Glide
 import com.royalit.garghi.Activitys.AboutUsActivity
 import com.royalit.garghi.Activitys.AskQuestionsActivity
+import com.royalit.garghi.Activitys.BlogActivity
 import com.royalit.garghi.Activitys.ContactUsActivity
 import com.royalit.garghi.Activitys.EditProfileActivity
 import com.royalit.garghi.Activitys.FaqActivity
@@ -115,7 +116,7 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
             }
 
             R.id.linearMyTeam -> {
-                startActivity(Intent(activity, MyTeamsActivity::class.java))
+                startActivity(Intent(activity, BlogActivity::class.java))
             }
             R.id.linearAboutUs -> {
                 startActivity(Intent(activity, AboutUsActivity::class.java))

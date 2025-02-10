@@ -33,6 +33,7 @@
         android:text="Vision Centres"
         android:fontFamily="@font/teachers_medium"
         android:textSize="13sp"
+        android:maxLines="2"
         android:textColor="@color/black"
         android:textAlignment="center"/>
 

@@ -41,7 +41,7 @@
                         android:layout_height="match_parent"
                         android:layout_gravity="center_vertical"
                         android:scaleType="fitXY"
-                        android:src="@drawable/vision_dummy"/>
+                        android:src="@drawable/ic_launcher_background"/>
                 </androidx.cardview.widget.CardView>
 
 

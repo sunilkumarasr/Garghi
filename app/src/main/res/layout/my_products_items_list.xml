@@ -45,7 +45,7 @@
                     android:layout_marginStart="15dp"
                     android:layout_marginEnd="10dp"
                     android:scaleType="fitXY"
-                    android:src="@drawable/vision_dummy"/>
+                    android:src="@drawable/ic_launcher_background"/>
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

@@ -8,7 +8,7 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@drawable/splash_bg">
+        android:background="@color/white">
         <include
             layout="@layout/top_layout"/>
 
@@ -29,8 +29,7 @@
                     android:layout_marginStart="25dp"
                     android:layout_marginEnd="25dp"
                     android:layout_marginTop="15dp"
-                    android:layout_marginBottom="20dp"
-                    android:src="@drawable/logo_name_ic"/>
+                    android:layout_marginBottom="20dp"/>
 
                 <de.hdodenhof.circleimageview.CircleImageView
                     android:layout_width="130dp"

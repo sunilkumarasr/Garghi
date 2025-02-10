@@ -176,7 +176,7 @@
                     android:layout_marginStart="5dp"
                     android:text="Call Now"
                     android:layout_gravity="center_vertical"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@color/white"
                     android:fontFamily="@font/teachers_semibold"/>
 
@@ -202,9 +202,9 @@
                     android:layout_height="match_parent"
                     android:layout_marginStart="10dp"
                     android:layout_marginEnd="15dp"
-                    android:text="View More Details"
+                    android:text="View More"
                     android:gravity="center"
-                    android:textSize="13sp"
+                    android:textSize="12sp"
                     android:textColor="@color/colorPrimary"
                     android:fontFamily="@font/teachers_semibold"/>
             </LinearLayout>

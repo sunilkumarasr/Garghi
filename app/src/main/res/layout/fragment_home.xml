@@ -70,21 +70,13 @@
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/txtName"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/teachers_semibold"
                             android:text="Hello Sunilkumar"
                             android:textColor="@color/white"
                             android:textSize="16sp" />
-
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginTop="5dp"
-                            android:fontFamily="@font/teachers_regular"
-                            android:text="Hello Sunilkumar"
-                            android:textColor="@color/white"
-                            android:textSize="13sp" />
 
                     </LinearLayout>
                 </LinearLayout>
@@ -118,6 +110,7 @@
                     android:padding="10dp" />
 
                 <LinearLayout
+                    android:visibility="gone"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:background="#f5f6f7"

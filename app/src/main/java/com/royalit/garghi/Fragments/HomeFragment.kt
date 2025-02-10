@@ -11,6 +11,7 @@ import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.denzcoskun.imageslider.models.SlideModel
 import com.royalit.garghi.Activitys.Categorys.CategoriesBasedItemsListActivity
+import com.royalit.garghi.Activitys.CategotirsListActivity
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.Activitys.JobAlerts.JobAlertDetailsActivity
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
@@ -18,11 +19,12 @@ import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
 import com.royalit.garghi.AdaptersAndModels.Home.HomeBannersModel
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertModel
+import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
+import com.royalit.garghi.Logins.LoginActivity
 import com.royalit.garghi.R
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.FragmentHomeBinding
-
 
 class HomeFragment : Fragment() {
 
@@ -45,13 +47,17 @@ class HomeFragment : Fragment() {
     }
 
     private fun init() {
+
+        val name = Preferences.loadStringValue(requireActivity(), Preferences.name, "")
+        binding.txtName.setText("Hello "+name)
+
         if (!ViewController.noInterNetConnectivity(requireActivity())) {
             ViewController.showToast(requireActivity(), "Please check your connection ")
             return
         } else {
             HomebannersApi()
             categoriesApi()
-            jobAlertApi()
+           // jobAlertApi()
         }
     }
 
@@ -85,7 +91,7 @@ class HomeFragment : Fragment() {
             } else {
                 imageList.add(
                     SlideModel(
-                        R.drawable.home_bannes
+                        R.drawable.ic_launcher_background
                     )
                 )
             }
@@ -127,12 +133,12 @@ class HomeFragment : Fragment() {
     }
     private fun DataSet(categories: List<CategoriesModel>) {
         // Get the first 5 items from the categories list
-        //val limitedCategories = if (categories.size > 11) categories.subList(0, 11) else categories
+        val limitedCategories = if (categories.size > 11) categories.subList(0, 11) else categories
 
-        val layoutManager = GridLayoutManager(activity, 3)
+        val layoutManager = GridLayoutManager(activity, 4)
         binding.recyclerview.layoutManager = layoutManager
 
-        val adapter = HomeCategoriesAdapter(categories, { item ->
+        val adapter = HomeCategoriesAdapter(limitedCategories, { item ->
             // Handle normal item click
             startActivity(Intent(activity, CategoriesBasedItemsListActivity::class.java).apply {
                 putExtra("category_id", item.category_id)
@@ -140,7 +146,8 @@ class HomeFragment : Fragment() {
             })
         }, {
 //            // Handle "more" click
-//            (activity as? DashBoardActivity)?.replaceFragment(CategoriesFragment())
+//            startActivity(Intent(requireActivity(), CategotirsListActivity::class.java))
+            (activity as? DashBoardActivity)?.loadFragment(CategoriesFragment())
         })
 
         binding.recyclerview.adapter = adapter

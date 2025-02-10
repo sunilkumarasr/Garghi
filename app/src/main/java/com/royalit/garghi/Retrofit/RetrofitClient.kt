@@ -10,10 +10,11 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://divyaangdisha.com/disability/api/"
-    const val Image_Path = "https://divyaangdisha.com/disability/"
+    private const val BASE_URL = "https://ritps.com/garghi_new/api/"
+    const val Image_Path = "https://ritps.com/garghi_new/"
     const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
 //    https://ritps.com/garghi_new/api
+
 //    const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
 //    const val MapKey = "AIzaSyASaGw-Knef0CC9LZI7pcQh66_ywg6xrT8"
 
@@ -40,6 +41,7 @@ object RetrofitClient {
 
     // Create ApiInterface instance
     val apiInterface: ApiInterface = retrofit.create(ApiInterface::class.java)
+
 }
 
 object RequestInterceptor : Interceptor {

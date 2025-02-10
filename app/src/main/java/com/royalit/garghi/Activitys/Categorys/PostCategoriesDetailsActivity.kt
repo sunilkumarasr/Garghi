@@ -67,7 +67,7 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), false)
         binding.mapView.onCreate(savedInstanceState)
 
         category_id = intent.getStringExtra("category_id").toString()
@@ -151,7 +151,7 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
     private fun postDataSet(postDetails: PostItemDetailsModel) {
         Glide.with(binding.imgBanner)
             .load(RetrofitClient.Image_Path + postDetails.data?.product?.image)
-            .placeholder(R.drawable.home_bannes).error(R.drawable.home_bannes)
+            .placeholder(R.drawable.ic_launcher_background).error(R.drawable.ic_launcher_background)
             .into(binding.imgBanner)
         binding.txtName.text = postDetails.data?.product?.title ?: ""
         binding.txtAddress.text = postDetails.data?.product?.address ?: ""

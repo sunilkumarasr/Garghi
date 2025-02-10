@@ -32,6 +32,9 @@
         android:theme="@style/Theme.Disability"
         tools:targetApi="31">
         <activity
+            android:name=".Activitys.CategotirsListActivity"
+            android:exported="false" />
+        <activity
             android:name=".Activitys.MyTeamsActivity"
             android:exported="false" />
         <activity

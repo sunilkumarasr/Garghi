@@ -136,7 +136,7 @@ class ProductDetaisActivity : AppCompatActivity() {
                     } else {
                         imageList.add(
                             SlideModel(
-                                R.drawable.home_bannes
+                                R.drawable.ic_launcher_background
                             )
                         )
                     }

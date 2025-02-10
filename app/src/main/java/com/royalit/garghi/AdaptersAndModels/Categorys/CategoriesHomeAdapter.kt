@@ -30,7 +30,7 @@ class CategoriesHomeAdapter(
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         val view = LayoutInflater.from(parent.context)
-            .inflate(R.layout.all_categories_items_list, parent, false)
+            .inflate(R.layout.home_all_categories_items_list, parent, false)
         return ViewHolder(view)
     }
 

@@ -27,7 +27,6 @@ import com.royalit.garghi.Fragments.HomeFragment
 import com.royalit.garghi.Fragments.MyServiceFragment
 import com.royalit.garghi.Fragments.ProfileFragment
 import com.royalit.garghi.Fragments.SaleFragment
-import com.royalit.garghi.Fragments.SearchFragment
 import com.royalit.garghi.R
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.ActivityDashBoardBinding
@@ -82,7 +81,7 @@ class DashBoardActivity : AppCompatActivity()  {
                     )
                 }
                 R.id.nav_search -> {
-                    loadFragment(SearchFragment())
+                    loadFragment(CategoriesFragment())
                     ViewController.changeStatusBarColor(
                         this,
                         ContextCompat.getColor(this, R.color.bottom_search),
@@ -116,7 +115,7 @@ class DashBoardActivity : AppCompatActivity()  {
 
     }
 
-    private fun loadFragment(fragment: Fragment) {
+    fun loadFragment(fragment: Fragment) {
         supportFragmentManager.beginTransaction()
             .replace(R.id.fragmentContainer, fragment)
             .commit()

@@ -78,7 +78,7 @@ class MyProductsListAdapter(
             holder.txtActiveStatus.setTextColor(ContextCompat.getColor(context, R.color.green))
         }
 
-        Glide.with(holder.imgLogo).load(item.additional_images.firstOrNull()).error(R.drawable.vision_dummy).into(holder.imgLogo)
+        Glide.with(holder.imgLogo).load(item.additional_images.firstOrNull()).error(R.drawable.ic_launcher_background).into(holder.imgLogo)
 
     }
 
