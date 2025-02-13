@@ -2,6 +2,8 @@ package com.royalit.garghi.Fragments
 
 import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
@@ -9,11 +11,10 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.denzcoskun.imageslider.models.SlideModel
 import com.royalit.garghi.Activitys.Categorys.CategoriesBasedItemsListActivity
-import com.royalit.garghi.Activitys.CategotirsListActivity
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.Activitys.JobAlerts.JobAlertDetailsActivity
+import com.royalit.garghi.AdaptersAndModels.BannerAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
 import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
 import com.royalit.garghi.AdaptersAndModels.Home.HomeBannersModel
@@ -21,14 +22,16 @@ import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertModel
 import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
-import com.royalit.garghi.Logins.LoginActivity
-import com.royalit.garghi.R
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.FragmentHomeBinding
 
 class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
+
+    //banners
+    val imageList = ArrayList<String>() // Create image list
+    private lateinit var bannerAdapter: BannerAdapter
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -83,20 +86,35 @@ class HomeFragment : Fragment() {
         })
     }
     private fun BannerDataSet(banners: List<HomeBannersModel>) {
-        val imageList = mutableListOf<SlideModel>()
-        banners.forEach {
-            val imageUrl = it.image
-            if (imageUrl.isNotEmpty()) {
-                imageList.add(SlideModel(imageUrl))
-            } else {
-                imageList.add(
-                    SlideModel(
-                        R.drawable.ic_launcher_background
-                    )
-                )
+        val imageList = mutableListOf<String>() // List to hold image URLs
+
+        // Clear imageList if it has previous data
+        imageList.clear()
+
+        // Iterate over the banners and add the image URLs to imageList
+        banners.forEach { banner ->
+            imageList.add(banner.image) // Add the image URL from each banner
+        }
+
+        // Set the adapter with the image URLs
+        bannerAdapter = BannerAdapter(imageList)
+        binding?.viewPagerBanner?.adapter = bannerAdapter
+
+        // Auto-scroll setup
+        autoScrollViewPager(imageList)
+    }
+
+    private fun autoScrollViewPager(imageListnew: MutableList<String>) {
+        val handler = Handler(Looper.getMainLooper())
+        val runnable = object : Runnable {
+            override fun run() {
+                val currentItem = binding!!.viewPagerBanner.currentItem
+                val nextItem = if (currentItem == imageListnew.size - 1) 0 else currentItem + 1
+                binding!!.viewPagerBanner.setCurrentItem(nextItem, true)
+                handler.postDelayed(this, 3000) // 3-second delay
             }
         }
-        binding.imageSlider.setImageList(imageList)
+        handler.postDelayed(runnable, 3000) // Initial delay before starting the auto-scroll
     }
 
     private fun categoriesApi() {
