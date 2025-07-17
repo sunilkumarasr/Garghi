@@ -10,8 +10,10 @@ import java.util.concurrent.TimeUnit
 
 object RetrofitClient {
 
-    private const val BASE_URL = "https://ritps.com/garghi_new/api/"
-    const val Image_Path = "https://ritps.com/garghi_new/"
+    private const val BASE_URL = "https://garghi.com/api/"
+//    private const val BASE_URL = "https://ritps.com/garghi_new/api/"
+    const val Image_Path = "https://garghi.com/garghi_new/"
+//    const val Image_Path = "https://ritps.com/garghi_new/"
     const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
 //    https://ritps.com/garghi_new/api
 
