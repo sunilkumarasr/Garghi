@@ -1,6 +1,7 @@
 package com.royalit.garghi.Fragments
 
 import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
@@ -8,12 +9,15 @@ import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.royalit.garghi.Activitys.Categorys.CategoriesBasedItemsListActivity
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.Activitys.JobAlerts.JobAlertDetailsActivity
+import com.royalit.garghi.Activitys.SplashActivity
+import com.royalit.garghi.Activitys.WalletActivity
 import com.royalit.garghi.AdaptersAndModels.BannerAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
 import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
@@ -22,6 +26,7 @@ import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertModel
 import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
+import com.royalit.garghi.Logins.LoginActivity
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.FragmentHomeBinding
 
@@ -62,6 +67,27 @@ class HomeFragment : Fragment() {
             categoriesApi()
            // jobAlertApi()
         }
+
+        binding.imgWhatsApp.setOnClickListener {
+
+            val url = "https://wa.me/$919705470588?text=${Uri.encode("Hi")}"
+            val intent = Intent(Intent.ACTION_VIEW).apply {
+                data = Uri.parse(url)
+                setPackage("com.whatsapp") // Ensures it opens in WhatsApp
+            }
+
+            try {
+                startActivity(intent)
+            } catch (e: Exception) {
+                e.printStackTrace()
+                Toast.makeText(requireActivity(), "WhatsApp not installed.", Toast.LENGTH_SHORT).show()
+            }
+
+        }
+        binding.imgWallet.setOnClickListener {
+            startActivity(Intent(requireActivity(), WalletActivity::class.java))
+        }
+
     }
 
     private fun HomebannersApi() {

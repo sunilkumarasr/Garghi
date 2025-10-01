@@ -18,6 +18,11 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
 
+//    password: RoyalItGarghi
+//    alis: key0
+//    fileName: Garghi
+
+
     buildTypes {
         release {
             isMinifyEnabled = false

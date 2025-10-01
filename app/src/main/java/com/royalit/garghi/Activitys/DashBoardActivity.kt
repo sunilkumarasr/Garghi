@@ -40,7 +40,7 @@ class DashBoardActivity : AppCompatActivity()  {
         ActivityDashBoardBinding.inflate(layoutInflater)
     }
 
-    var WhatsAppID = "9441085061"
+    var WhatsAppID = "9705470588"
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -146,10 +146,6 @@ class DashBoardActivity : AppCompatActivity()  {
             }
         })
     }
-    private fun openWhatsAppPage() {
-        val browserIntent = Intent(Intent.ACTION_VIEW, Uri.parse("https://api.whatsapp.com/send?phone=+"+WhatsAppID+"&text=Hi%20there"))
-        startActivity(browserIntent)
-    }
 
     private fun getProfileApi() {
         val userId = Preferences.loadStringValue(this@DashBoardActivity , Preferences.userId, "")
@@ -170,12 +166,9 @@ class DashBoardActivity : AppCompatActivity()  {
         })
     }
 
-
     override fun onBackPressed() {
-        super.onBackPressed()
         exitDialog()
     }
-
 
     private fun exitDialog(){
         val dialogBuilder = AlertDialog.Builder(this@DashBoardActivity)

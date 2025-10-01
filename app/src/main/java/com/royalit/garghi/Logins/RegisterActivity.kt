@@ -142,9 +142,7 @@ class RegisterActivity : AppCompatActivity(){
                             ViewController.showToast(applicationContext, "success please Login")
                             startActivity(Intent(this@RegisterActivity, LoginActivity::class.java))
                         } else {
-                            if (loginResponse != null) {
-                                ViewController.showToast(applicationContext, loginResponse.message.toString())
-                            }
+                            ViewController.showToast(applicationContext, loginResponse?.message.toString())
                         }
                     } else {
                         ViewController.showToast(applicationContext, "Error: ${response.code()}")

@@ -314,7 +314,6 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
         return email.matches(Regex(emailPattern))
     }
 
-
     private fun enqueryApi(name_: String, phone_: String, email_: String, message_: String) {
         val userId = Preferences.loadStringValue(this@PostCategoriesDetailsActivity, Preferences.userId, "")
         ViewController.showLoading(this@PostCategoriesDetailsActivity)
