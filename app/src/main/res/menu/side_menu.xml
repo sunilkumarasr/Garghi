@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:visible="false"
+        android:id="@+id/nav_company"
+        android:icon="@drawable/home_ic"
+        android:title="Company Info"/>
+
+    <item
+        android:id="@+id/nav_blog"
+        android:icon="@drawable/blog"
+        android:title="Blog" />
+
+    <item
+        android:id="@+id/nav_terms"
+        android:icon="@drawable/post_list_menu"
+        android:title="Terms and Conditions" />
+
+    <item
+        android:id="@+id/nav_PrivacyPolicy"
+        android:icon="@drawable/privacy_policy_menu"
+        android:title="Privacy Policy" />
+
+    <item
+        android:id="@+id/nav_contactUs"
+        android:icon="@drawable/headphone_menu"
+        android:title="Contact Us" />
+
+    <item
+        android:id="@+id/nav_aboutUs"
+        android:icon="@drawable/about_menu"
+        android:title="About Us" />
+
+</menu>

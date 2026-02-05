@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Garghi</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="splash_note">Accessible Healthcare at Your Fingertips: Discover Nearby Hospitals and Therapy Centers using Disability App!</string>
+    <string name="Get_Started">Get Started</string>
+    <string name="note">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat dui tristique volutpat semper. Fusce semper sit amet erat ut interdum. Etiam varius ac odio sed facilisis. Sed iaculis nisi ac odio porttitor dictum. Fusce tristique nisl a diam ornare, sit amet sollicitudin tellus hendrerit. Donec dapibus a sem sit amet tempus.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat dui tristique volutpat semper. Fusce semper sit amet erat ut interdum. Etiam varius ac odio sed facilisis.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat dui tristique volutpat semper. Fusce semper sit amet erat ut interdum. Etiam varius ac odio sed facilisis.
+    Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat dui tristique volutpat semper. Fusce semper sit amet erat ut interdum. Etiam varius ac odio sed facilisis. </string>
+    <string name="note_short">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec consequat dui tristique volutpat semper. Fusce semper sit amet erat ut interdum. Etiam varius ac odio sed facilisis. </string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="notificatin_channel">Disability_channel</string>
+</resources>

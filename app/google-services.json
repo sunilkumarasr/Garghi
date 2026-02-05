@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "902792602427",
+    "project_id": "divyaangdisha-e6ca2",
+    "storage_bucket": "divyaangdisha-e6ca2.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:902792602427:android:c19ce8783d13efb0a5cd1e",
+        "android_client_info": {
+          "package_name": "com.royalit.garghi"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "902792602427-h2jm0im9nn9d99poe4juji6gloqurfeg.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.royalit.garghi",
+            "certificate_hash": "44dcb9a2b68803b43100463d301fd9e63ff05a0a"
+          }
+        },
+        {
+          "client_id": "902792602427-4t72fvll28j6bbj8bq5e8g3gtk2ccu7f.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "902792602427-4t72fvll28j6bbj8bq5e8g3gtk2ccu7f.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
