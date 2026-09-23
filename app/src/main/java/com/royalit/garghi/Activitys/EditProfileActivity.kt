@@ -43,50 +43,6 @@ class EditProfileActivity : AppCompatActivity() {
         ActivityEditProfileBinding.inflate(layoutInflater)
     }
 
-//    val requestPermissions = registerForActivityResult(RequestMultiplePermissions()) { results ->
-//        var permission = false;
-//        if (
-//            Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU &&
-//            (
-//                    ContextCompat.checkSelfPermission(
-//                        applicationContext,
-//                        READ_MEDIA_IMAGES
-//                    ) == PERMISSION_GRANTED ||
-//                            ContextCompat.checkSelfPermission(
-//                                applicationContext,
-//                                READ_MEDIA_VIDEO
-//                            ) == PERMISSION_GRANTED
-//                    )
-//        ) {
-//            permission = true
-//            // Full access on Android 13 (API level 33) or higher
-//        } else if (
-//            Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE &&
-//            ContextCompat.checkSelfPermission(
-//                applicationContext,
-//                READ_MEDIA_VISUAL_USER_SELECTED
-//            ) == PERMISSION_GRANTED
-//        ) {
-//            permission = true
-//            // Partial access on Android 14 (API level 34) or higher
-//        } else if (ContextCompat.checkSelfPermission(
-//                applicationContext,
-//                READ_EXTERNAL_STORAGE
-//            ) == PERMISSION_GRANTED
-//        ) {
-//            permission = true
-//            // Full access up to Android 12 (API level 32)
-//        } else {
-//            permission = false
-//        }
-//        if (permission) {
-//            val intent = Intent(Intent.ACTION_PICK, MediaStore.Images.Media.EXTERNAL_CONTENT_URI)
-//            startActivityForResult(intent, IMAGE_PICK_CODE)
-//        } else {
-//            ViewController.showToast(this@EditProfileActivity, "Accept permissions")
-//        }
-//    }
-
     //image selection
     private val IMAGE_PICK_CODE = 1000
     private var selectedImageUri: Uri? = null
@@ -143,13 +99,6 @@ class EditProfileActivity : AppCompatActivity() {
 
 
         binding.cardChoose.setOnClickListener {
-//            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.UPSIDE_DOWN_CAKE) {
-//                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO))
-//            } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-//                requestPermissions.launch(arrayOf(READ_MEDIA_IMAGES, READ_MEDIA_VIDEO))
-//            } else {
-//                requestPermissions.launch(arrayOf(READ_EXTERNAL_STORAGE))
-//            }
             val intent = Intent()
             intent.setType("image/*")
             intent.setAction(Intent.ACTION_GET_CONTENT)
@@ -333,13 +282,16 @@ class EditProfileActivity : AppCompatActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        //single image selection
-        if (data != null) {
-            selectedImageUri = data.data!!
-            val file = File(getRealPathFromURI(selectedImageUri!!))
-            binding.txtFileName.text = file.name
-        }
 
+        if (requestCode == 1 && resultCode == RESULT_OK) {
+            val uri = data?.data ?: return
+
+            selectedImageUri = uri
+            binding.profileImage.setImageURI(uri)
+
+            // Keep your existing filename display if getRealPathFromURI works here
+            binding.txtFileName.text = File(getRealPathFromURI(uri)).name
+        }
     }
 
     //update profile

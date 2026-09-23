@@ -11,14 +11,10 @@ import java.util.concurrent.TimeUnit
 object RetrofitClient {
 
     private const val BASE_URL = "https://garghi.com/api/"
-//    private const val BASE_URL = "https://ritps.com/garghi_new/api/"
-    const val Image_Path = "https://garghi.com/garghi_new/"
-//    const val Image_Path = "https://ritps.com/garghi_new/"
-    const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
-//    https://ritps.com/garghi_new/api
 
-//    const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
-//    const val MapKey = "AIzaSyASaGw-Knef0CC9LZI7pcQh66_ywg6xrT8"
+    const val Image_Path = "https://garghi.com/garghi_new/"
+
+    const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
 
     // Initialize logging interceptor
     private val interceptor = HttpLoggingInterceptor().apply {
@@ -53,7 +49,6 @@ object RequestInterceptor : Interceptor {
             .header("Content-Type", "application/json")
         // Uncomment and set your API key if needed
         //.header("api_key", API_KEY)
-
         return chain.proceed(requestBuilder.build())
     }
 }

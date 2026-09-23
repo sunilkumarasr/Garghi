@@ -34,6 +34,10 @@ class WalletActivity : AppCompatActivity() {
 
     private fun inits() {
 
+        binding.imgBack.setOnClickListener {
+            finish()
+        }
+
         binding.cardWithdraw.setOnClickListener {
             startActivity(Intent(this@WalletActivity, WithdrawActivity::class.java))
         }

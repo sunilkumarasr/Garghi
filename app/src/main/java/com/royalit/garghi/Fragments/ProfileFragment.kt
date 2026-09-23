@@ -34,6 +34,9 @@ import com.royalit.garghi.databinding.FragmentProfileBinding
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
+import android.content.pm.PackageManager
+import android.os.Build
+
 
 class ProfileFragment : Fragment(), View.OnClickListener  {
 
@@ -58,6 +61,21 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
     }
 
     private fun init() {
+
+        val context = requireContext()
+
+        val packageInfo = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            context.packageManager.getPackageInfo(
+                context.packageName,
+                PackageManager.PackageInfoFlags.of(0)
+            )
+        } else {
+            @Suppress("DEPRECATION")
+            context.packageManager.getPackageInfo(context.packageName, 0)
+        }
+
+        binding.txtVersion.text = "Version ${packageInfo.versionName ?: "1.0"}"
+
 
         getProfileApi()
 

@@ -1,79 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    xmlns:app="http://schemas.android.com/apk/res-auto">
+    tools:context=".Fragments.ProfileFragment">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/white">
+        android:background="#F6F8FA"
+        android:fillViewport="true"
+        android:clipToPadding="false">
 
         <LinearLayout
-            android:id="@+id/linearTop"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
-            <LinearLayout
+            android:orientation="vertical"
+            android:paddingBottom="32dp">
+
+            <!-- Header -->
+            <FrameLayout
                 android:layout_width="match_parent"
-                android:layout_height="120dp"
-                android:background="@color/bottom_myservice">
+                android:layout_height="184dp"
+                android:background="@color/colorPrimary">
+
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:text="Profile"
-                    android:textColor="@color/black"
-                    android:padding="10dp"
-                    android:textSize="25sp"
-                    android:fontFamily="@font/teachers_semibold"/>
-            </LinearLayout>
-            <RelativeLayout
-                android:layout_width="120dp"
-                android:layout_height="120dp"
-                android:layout_marginTop="-60dp"
-                android:orientation="vertical"
-                android:layout_gravity="center"
-                android:gravity="center">
+                    android:layout_gravity="top"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="30dp"
+                    android:fontFamily="@font/teachers_semibold"
+                    android:text="My Profile"
+                    android:textColor="@color/white"
+                    android:textSize="26sp" />
 
-                <de.hdodenhof.circleimageview.CircleImageView
-                    android:id="@+id/profileImage"
-                    android:layout_width="110dp"
-                    android:layout_height="110dp"
-                    android:layout_gravity="center_vertical"
-                    android:src="@drawable/dummy_profile" />
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_gravity="top"
+                    android:layout_marginStart="24dp"
+                    android:layout_marginTop="69dp"
+                    android:fontFamily="@font/teachers_regular"
+                    android:text="Manage your account and preferences"
+                    android:textColor="@color/white"
+                    android:textSize="14sp" />
+            </FrameLayout>
+
+            <!-- Profile image -->
+            <FrameLayout
+                android:layout_width="116dp"
+                android:layout_height="116dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginTop="-54dp">
 
                 <androidx.cardview.widget.CardView
-                    android:layout_width="40dp"
-                    android:layout_height="40dp"
-                    app:cardCornerRadius="25dp"
-                    android:layout_marginBottom="2dp"
+                    android:layout_width="108dp"
+                    android:layout_height="108dp"
+                    android:layout_gravity="center"
                     app:cardBackgroundColor="@color/white"
-                    android:layout_alignParentBottom="true"
-                    android:layout_alignParentRight="true">
-                    <androidx.appcompat.widget.AppCompatImageView
-                        android:id="@+id/imgEdit"
-                        android:layout_width="25dp"
-                        android:layout_height="25dp"
+                    app:cardCornerRadius="54dp"
+                    app:cardElevation="4dp">
+
+                    <de.hdodenhof.circleimageview.CircleImageView
+                        android:id="@+id/profileImage"
+                        android:layout_width="100dp"
+                        android:layout_height="100dp"
                         android:layout_gravity="center"
-                        android:src="@drawable/edit_p_menu" />
+                        android:contentDescription="Profile photo"
+                        android:src="@drawable/dummy_profile" />
                 </androidx.cardview.widget.CardView>
 
+                <androidx.cardview.widget.CardView
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="3dp"
+                    android:layout_marginBottom="3dp"
+                    android:layout_gravity="bottom|end"
+                    app:cardBackgroundColor="@color/white"
+                    app:cardCornerRadius="18dp"
+                    app:cardElevation="3dp">
 
-            </RelativeLayout>
-        </LinearLayout>
+                    <androidx.appcompat.widget.AppCompatImageView
+                        android:id="@+id/imgEdit"
+                        android:layout_width="20dp"
+                        android:layout_height="20dp"
+                        android:layout_gravity="center"
+                        android:contentDescription="Edit profile"
+                        android:src="@drawable/edit_p_menu" />
+                </androidx.cardview.widget.CardView>
+            </FrameLayout>
 
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_below="@+id/linearTop">
-
-            <LinearLayout
+            <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="15dp"
-                android:layout_marginStart="15dp"
-                android:layout_marginEnd="15dp"
-                android:layout_marginBottom="25dp"
-                android:orientation="vertical">
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/teachers_semibold"
+                android:gravity="center"
+                android:text="Your account"
+                android:textColor="@color/black"
+                android:textSize="19sp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="3dp"
+                android:fontFamily="@font/teachers_regular"
+                android:gravity="center"
+                android:text="Tap the photo to edit your profile"
+                android:textColor="@color/gray"
+                android:textSize="13sp" />
+
+            <!-- Account section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/teachers_semibold"
+                android:text="ACCOUNT"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
@@ -82,280 +139,251 @@
 
                     <LinearLayout
                         android:id="@+id/linearMyAccount"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/about_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/about_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="My Account"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="My Account" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
 
+                    <View style="@style/ProfileMenuDivider" />
 
                     <LinearLayout
                         android:id="@+id/linearMyTeam"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/about_menu"
-                            android:layout_marginStart="15dp"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Blog"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
-                    </LinearLayout>
+                        style="@style/ProfileMenuRow">
 
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/about_menu" />
+
+                        <TextView
+                            style="@style/ProfileMenuText"
+                            android:text="Blog" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Information section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/teachers_semibold"
+                android:text="INFORMATION"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/linearAboutUs"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/about_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/about_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="About Us"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="About Us" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
+
+                    <View style="@style/ProfileMenuDivider" />
 
                     <LinearLayout
                         android:id="@+id/linearPrivacyPolicy"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/privacy_policy_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/privacy_policy_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Privacy Policy"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="Privacy Policy" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
 
+                    <View style="@style/ProfileMenuDivider" />
 
                     <LinearLayout
                         android:id="@+id/linearTermsandConditions"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/post_list_menu"
-                            android:layout_marginStart="15dp"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Terms And Conditions"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
-                    </LinearLayout>
+                        style="@style/ProfileMenuRow">
 
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/post_list_menu" />
+
+                        <TextView
+                            style="@style/ProfileMenuText"
+                            android:text="Terms and Conditions" />
+
+                        <androidx.appcompat.widget.AppCompatImageView
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
+                    </LinearLayout>
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <!-- Support section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/teachers_semibold"
+                android:text="SUPPORT"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginEnd="16dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
                     <LinearLayout
                         android:id="@+id/linearContactUs"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            app:tint="@color/gray"
-                            android:src="@drawable/headphone_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/headphone_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Contact Us"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="Contact Us" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
 
+                    <View style="@style/ProfileMenuDivider" />
 
                     <LinearLayout
                         android:id="@+id/linearFAQ"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/faq_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/faq_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="FAQ"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="FAQ" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
+
+                    <View style="@style/ProfileMenuDivider" />
 
                     <LinearLayout
                         android:id="@+id/linearHelpAndSupport"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="8dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
+                        style="@style/ProfileMenuRow">
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            android:src="@drawable/help_menu"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuIcon"
+                            android:src="@drawable/help_menu" />
+
                         <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Help and Support"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
+                            style="@style/ProfileMenuText"
+                            android:text="Help and Support" />
+
                         <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
+                            style="@style/ProfileMenuArrow"
+                            android:src="@drawable/right_arrow_ic" />
                     </LinearLayout>
-
-
-                    <LinearLayout
-                        android:id="@+id/linearLogout"
-                        android:layout_width="match_parent"
-                        android:layout_height="50dp"
-                        android:layout_marginBottom="20dp"
-                        android:gravity="center_vertical"
-                        android:background="@drawable/round_profile_box">
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="30dp"
-                            android:layout_height="30dp"
-                            app:tint="@color/gray"
-                            android:src="@drawable/logout_menu"
-                            android:layout_marginStart="15dp"/>
-                        <TextView
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:text="Logout"
-                            android:layout_marginStart="15dp"
-                            android:textColor="@color/black"
-                            android:textSize="17sp"/>
-                        <androidx.appcompat.widget.AppCompatImageView
-                            android:layout_width="25dp"
-                            android:layout_height="25dp"
-                            android:layout_marginEnd="5dp"
-                            app:tint="@color/green"
-                            android:src="@drawable/right_arrow_ic"
-                            android:layout_marginStart="15dp"/>
-                    </LinearLayout>
-
                 </LinearLayout>
+            </androidx.cardview.widget.CardView>
 
-            </LinearLayout>
-        </ScrollView>
+            <!-- Logout -->
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="28dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="15dp"
+                app:cardBackgroundColor="@color/white"
+                app:cardCornerRadius="16dp"
+                app:cardElevation="1dp">
 
-    </RelativeLayout>
+                <LinearLayout
+                    android:id="@+id/linearLogout"
+                    style="@style/ProfileMenuRow">
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        style="@style/ProfileMenuIcon"
+                        android:src="@drawable/logout_menu" />
 
+                    <TextView
+                        style="@style/ProfileMenuText"
+                        android:text="Logout"
+                        android:textColor="#C62828" />
 
+                    <androidx.appcompat.widget.AppCompatImageView
+                        style="@style/ProfileMenuArrow"
+                        android:src="@drawable/right_arrow_ic" />
+                </LinearLayout>
+            </androidx.cardview.widget.CardView>
+
+            <TextView
+                android:id="@+id/txtVersion"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="15dp"
+                android:textColor="@color/gray"
+                android:textSize="12sp"
+                tools:text="Version 1.0.1" />
+
+        </LinearLayout>
+    </ScrollView>
 </layout>
