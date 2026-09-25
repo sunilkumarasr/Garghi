@@ -144,36 +144,36 @@ class HomeFragment : Fragment() {
     }
 
     private fun categoriesApi() {
-            ViewController.showLoading(requireActivity())
-            val apiInterface = RetrofitClient.apiInterface
-            apiInterface.categoriesApi()
-                .enqueue(object : retrofit2.Callback<List<CategoriesModel>> {
-                    override fun onResponse(
-                        call: retrofit2.Call<List<CategoriesModel>>,
-                        response: retrofit2.Response<List<CategoriesModel>>
-                    ) {
-                        ViewController.hideLoading()
-                        if (response.isSuccessful) {
-                            val rsp = response.body()
-                            if (rsp != null) {
-                                val categories = response.body()
-                                if (categories != null) {
-                                    DataSet(categories)
-                                }
-                            }
-                        } else {
-                            ViewController.showToast(requireActivity(), "Error: ${response.code()}")
-                        }
+        ViewController.showLoading(requireActivity())
+
+        RetrofitClient.apiInterface.categoriesApi()
+            .enqueue(object : retrofit2.Callback<List<CategoriesModel>> {
+
+                override fun onResponse(
+                    call: retrofit2.Call<List<CategoriesModel>>,
+                    response: retrofit2.Response<List<CategoriesModel>>
+                ) {
+                    ViewController.hideLoading()
+                    if (!isAdded) return
+
+                    if (response.isSuccessful) {
+                        response.body()?.let { DataSet(it) }
+                    } else {
+                        ViewController.showToast(requireActivity(), "Error: ${response.code()}")
                     }
-                    override fun onFailure(
-                        call: retrofit2.Call<List<CategoriesModel>>,
-                        t: Throwable
-                    ) {
-                        Log.e("cat_error", t.message.toString())
-                        ViewController.hideLoading()
+                }
+
+                override fun onFailure(
+                    call: retrofit2.Call<List<CategoriesModel>>,
+                    t: Throwable
+                ) {
+                    ViewController.hideLoading()
+                    Log.e("cat_error", "Categories request failed", t)
+                    if (isAdded) {
                         ViewController.showToast(requireActivity(), "Try again: ${t.message}")
                     }
-                })
+                }
+            })
     }
     private fun DataSet(categories: List<CategoriesModel>) {
         // Get the first 5 items from the categories list
