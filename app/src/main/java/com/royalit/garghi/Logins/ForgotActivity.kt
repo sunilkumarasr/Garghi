@@ -2,9 +2,12 @@ package com.royalit.garghi.Logins
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.inputmethod.InputMethodManager
 import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.royalit.garghi.AdaptersAndModels.EmailRequest
 import com.royalit.garghi.AdaptersAndModels.ForgotEmailResponse
 import com.royalit.garghi.Config.ViewController
@@ -24,8 +27,29 @@ class ForgotActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), true)
 
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
         inits()
     }
@@ -42,11 +66,23 @@ class ForgotActivity : AppCompatActivity() {
             if(!ViewController.noInterNetConnectivity(applicationContext)){
                 ViewController.showToast(applicationContext, "Please check your connection ")
             }else{
+                hideKeyboard()
                 forgotApi()
             }
         }
     }
 
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        inputMethodManager.hideSoftInputFromWindow(
+            binding.emailEdit.windowToken,
+            0
+        )
+
+        binding.emailEdit.clearFocus()
+    }
 
     private fun forgotApi() {
         val email=binding.emailEdit.text?.trim().toString()

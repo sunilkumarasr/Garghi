@@ -32,7 +32,7 @@ class MyProductsActivity : AppCompatActivity(), View.OnClickListener   {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), true)
 
         inits()
 

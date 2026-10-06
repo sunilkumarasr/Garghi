@@ -20,10 +20,14 @@ import com.royalit.garghi.Activitys.SplashActivity
 import com.royalit.garghi.Activitys.WalletActivity
 import com.royalit.garghi.AdaptersAndModels.BannerAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
+import com.royalit.garghi.AdaptersAndModels.EnquieryPostModel
 import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
 import com.royalit.garghi.AdaptersAndModels.Home.HomeBannersModel
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertModel
+import com.royalit.garghi.AdaptersAndModels.MyPostEnquieryAdapter
+import com.royalit.garghi.AdaptersAndModels.TestimonialModel
+import com.royalit.garghi.AdaptersAndModels.TestimonialsAdapter
 import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
 import com.royalit.garghi.Logins.LoginActivity
@@ -65,6 +69,7 @@ class HomeFragment : Fragment() {
         } else {
             HomebannersApi()
             categoriesApi()
+            testimonialsApi()
            // jobAlertApi()
         }
 
@@ -89,6 +94,8 @@ class HomeFragment : Fragment() {
         }
 
     }
+
+
 
     private fun HomebannersApi() {
         val apiInterface = RetrofitClient.apiInterface
@@ -144,8 +151,6 @@ class HomeFragment : Fragment() {
     }
 
     private fun categoriesApi() {
-        ViewController.showLoading(requireActivity())
-
         RetrofitClient.apiInterface.categoriesApi()
             .enqueue(object : retrofit2.Callback<List<CategoriesModel>> {
 
@@ -153,7 +158,6 @@ class HomeFragment : Fragment() {
                     call: retrofit2.Call<List<CategoriesModel>>,
                     response: retrofit2.Response<List<CategoriesModel>>
                 ) {
-                    ViewController.hideLoading()
                     if (!isAdded) return
 
                     if (response.isSuccessful) {
@@ -167,7 +171,6 @@ class HomeFragment : Fragment() {
                     call: retrofit2.Call<List<CategoriesModel>>,
                     t: Throwable
                 ) {
-                    ViewController.hideLoading()
                     Log.e("cat_error", "Categories request failed", t)
                     if (isAdded) {
                         ViewController.showToast(requireActivity(), "Try again: ${t.message}")
@@ -195,6 +198,44 @@ class HomeFragment : Fragment() {
         })
 
         binding.recyclerview.adapter = adapter
+    }
+
+
+    private fun testimonialsApi() {
+        val apiInterface = RetrofitClient.apiInterface
+        apiInterface.testimonialsApi("3313").enqueue(object : retrofit2.Callback<List<TestimonialModel>> {
+            override fun onResponse(
+                call: retrofit2.Call<List<TestimonialModel>>,
+                response: retrofit2.Response<List<TestimonialModel>>
+            ) {
+                if (response.isSuccessful) {
+                    val rsp = response.body()
+                    if (rsp != null) {
+                        TestimonialsDataSet(rsp)
+                    } else {
+                        binding.recyclerviewTestimonials.visibility = View.GONE
+                    }
+                } else {
+                    binding.recyclerviewTestimonials.visibility = View.GONE
+                }
+            }
+
+            override fun onFailure(call: retrofit2.Call<List<TestimonialModel>>, t: Throwable) {
+                Log.e("cat_error", t.message.toString())
+                binding.recyclerviewTestimonials.visibility = View.GONE
+            }
+        })
+
+    }
+    private fun TestimonialsDataSet(joblist: List<TestimonialModel>) {
+        binding.recyclerviewTestimonials.layoutManager = LinearLayoutManager(
+            requireContext(),
+            LinearLayoutManager.HORIZONTAL,
+            false
+        )
+        binding.recyclerviewTestimonials.adapter = TestimonialsAdapter(joblist) { item ->
+
+        }
     }
 
     private fun jobAlertApi() {

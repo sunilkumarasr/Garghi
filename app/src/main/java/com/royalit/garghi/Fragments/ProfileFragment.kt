@@ -36,6 +36,8 @@ import retrofit2.Callback
 import retrofit2.Response
 import android.content.pm.PackageManager
 import android.os.Build
+import com.royalit.garghi.Activitys.MySubscriptionActivity
+import com.royalit.garghi.Activitys.SubscriptionActivity
 
 
 class ProfileFragment : Fragment(), View.OnClickListener  {
@@ -88,6 +90,8 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
         binding.linearPrivacyPolicy.setOnClickListener(this)
         binding.linearFAQ.setOnClickListener(this)
         binding.linearHelpAndSupport.setOnClickListener(this)
+        binding.linearSubscription.setOnClickListener(this)
+        binding.linearMySubscription.setOnClickListener(this)
         binding.linearLogout.setOnClickListener(this)
     }
 
@@ -159,6 +163,16 @@ class ProfileFragment : Fragment(), View.OnClickListener  {
             R.id.linearHelpAndSupport -> {
                 startActivity(Intent(activity, HelpAndSupportActivity::class.java))
             }
+
+            R.id.linearSubscription -> {
+                startActivity(Intent(activity, SubscriptionActivity::class.java))
+            }
+
+
+            R.id.linearMySubscription -> {
+                startActivity(Intent(activity, MySubscriptionActivity::class.java))
+            }
+
 
             R.id.linearLogout -> {
                 logOut()

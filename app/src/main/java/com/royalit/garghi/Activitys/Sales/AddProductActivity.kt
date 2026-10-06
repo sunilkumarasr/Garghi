@@ -19,6 +19,8 @@ import androidx.activity.result.contract.ActivityResultContracts.RequestMultiple
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.AdaptersAndModels.AddProductResponse
 import com.royalit.garghi.Config.Preferences
@@ -94,7 +96,29 @@ class AddProductActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.blue), true)
+
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
         inits()
 

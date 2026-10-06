@@ -12,6 +12,8 @@ import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.GravityCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.drawerlayout.widget.DrawerLayout
 import androidx.fragment.app.Fragment
 import com.bumptech.glide.Glide
@@ -45,6 +47,27 @@ class DashBoardActivity : AppCompatActivity()  {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(
+                WindowInsetsCompat.Type.systemBars()
+            )
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                0
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
 
         //login
@@ -67,7 +90,7 @@ class DashBoardActivity : AppCompatActivity()  {
         ViewController.changeStatusBarColor(
             this,
             ContextCompat.getColor(this, R.color.bottom_home),
-            false
+            true
         )
 
         binding.bottomNavigation.setOnItemSelectedListener { item ->
@@ -77,7 +100,7 @@ class DashBoardActivity : AppCompatActivity()  {
                     ViewController.changeStatusBarColor(
                         this,
                         ContextCompat.getColor(this, R.color.bottom_home),
-                        false
+                        true
                     )
                 }
                 R.id.nav_search -> {
@@ -85,7 +108,7 @@ class DashBoardActivity : AppCompatActivity()  {
                     ViewController.changeStatusBarColor(
                         this,
                         ContextCompat.getColor(this, R.color.bottom_search),
-                        false
+                        true
                     )
                 }
                 R.id.nav_services -> {
@@ -93,15 +116,15 @@ class DashBoardActivity : AppCompatActivity()  {
                     ViewController.changeStatusBarColor(
                         this,
                         ContextCompat.getColor(this, R.color.bottom_myservice),
-                        false
+                        true
                     )
                 }
                 R.id.nav_profile -> {
                     loadFragment(ProfileFragment())
                     ViewController.changeStatusBarColor(
                         this,
-                        ContextCompat.getColor(this, R.color.bottom_profile),
-                        false
+                        ContextCompat.getColor(this, R.color.colorPrimary),
+                        true
                     )
                 }
             }

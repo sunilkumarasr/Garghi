@@ -1,5 +1,6 @@
 package com.royalit.garghi.Retrofit
 
+import com.google.gson.JsonElement
 import com.royalit.garghi.AdaptersAndModels.AboutusResponse
 import com.royalit.garghi.AdaptersAndModels.AddPostResponse
 import com.royalit.garghi.AdaptersAndModels.AddProductResponse
@@ -31,6 +32,7 @@ import com.royalit.garghi.AdaptersAndModels.LoginRequest
 import com.royalit.garghi.AdaptersAndModels.LoginResponse
 import com.royalit.garghi.AdaptersAndModels.MyPostsList.MyPostsModel
 import com.royalit.garghi.AdaptersAndModels.MyProductsModel
+import com.royalit.garghi.AdaptersAndModels.MySubscription
 import com.royalit.garghi.AdaptersAndModels.Notifications.NotificationModel
 import com.royalit.garghi.AdaptersAndModels.OTPRequest
 import com.royalit.garghi.AdaptersAndModels.OTPResponse
@@ -49,6 +51,8 @@ import com.royalit.garghi.AdaptersAndModels.SalesHome.SaleModel
 import com.royalit.garghi.AdaptersAndModels.SocialMediaModel
 import com.royalit.garghi.AdaptersAndModels.State.StateModel
 import com.royalit.garghi.AdaptersAndModels.SubCategoriesItems.SubCategoriesItemsModel
+import com.royalit.garghi.AdaptersAndModels.SubscriptionPlan
+import com.royalit.garghi.AdaptersAndModels.TestimonialModel
 import com.royalit.garghi.AdaptersAndModels.UpdateLocationResponse
 import com.royalit.garghi.AdaptersAndModels.UpdateProfileResponse
 import com.royalit.garghi.AdaptersAndModels.UseFullLinks.UseFullLinksModel
@@ -306,5 +310,17 @@ interface ApiInterface {
 
     @GET("socialmedia")
     fun socialMediaApi(): Call<List<SocialMediaModel>>
+
+    @GET("subscription_list")
+    fun subscriptionApi(): Call<List<SubscriptionPlan>>
+
+    @GET("my_subscriptions")
+    fun mySubscriptionsApi(
+        @Query("user_id") userId: String
+    ): Call<JsonElement>
+
+    @GET("testimonials")
+    fun testimonialsApi(@Query("module_id") module_id: String?): Call<List<TestimonialModel>>
+
 
 }

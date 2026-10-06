@@ -26,6 +26,7 @@ class SubCategoriesItemsAdapter(
         val imgLogo: ImageView = itemView.findViewById(R.id.imgLogo)
         val linearCall: LinearLayout = itemView.findViewById(R.id.linearCall)
         val linearViewMore: LinearLayout = itemView.findViewById(R.id.linearViewMore)
+        val liner: LinearLayout = itemView.findViewById(R.id.liner)
 
         init {
             linearCall.setOnClickListener {
@@ -40,6 +41,21 @@ class SubCategoriesItemsAdapter(
                     onItemClick(items[position], "view")
                 }
             }
+
+            imgLogo.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(items[position], "view")
+                }
+            }
+
+            liner.setOnClickListener {
+                val position = adapterPosition
+                if (position != RecyclerView.NO_POSITION) {
+                    onItemClick(items[position], "view")
+                }
+            }
+
         }
     }
 

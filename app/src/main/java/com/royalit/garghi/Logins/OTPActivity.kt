@@ -11,6 +11,8 @@ import android.widget.ImageView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.AppCompatEditText
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.core.widget.addTextChangedListener
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
@@ -48,6 +50,28 @@ class OTPActivity : AppCompatActivity() {
         setContentView(binding.root)
         //FirebaseApp.initializeApp(this)
         ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), false)
+
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
         email= intent.getStringExtra("email").toString()
         type= intent.getStringExtra("type").toString()
@@ -136,6 +160,7 @@ class OTPActivity : AppCompatActivity() {
 
 
         binding.cardLogin.setOnClickListener {
+            hideKeyboard()
             otpApi()
         }
 
@@ -147,6 +172,18 @@ class OTPActivity : AppCompatActivity() {
 
 
 
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        inputMethodManager.hideSoftInputFromWindow(
+            binding.pinEdit4.windowToken,
+            0
+        )
+
+        binding.pinEdit4.clearFocus()
     }
 
     private fun otpApi() {

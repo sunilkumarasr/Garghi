@@ -4,25 +4,28 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/white">
-
-        <ImageView
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:src="@drawable/login_top"
-            android:scaleType="fitXY"/>
-
-        <ScrollView
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:scrollbars="none">
+            android:background="@color/white"
+            android:orientation="vertical">
+
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:src="@drawable/login_top"
+                android:scaleType="fitXY"/>
+
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:layout_gravity="bottom"
+                android:gravity="bottom"
                 android:layout_marginStart="25dp"
                 android:layout_marginEnd="25dp"
                 android:orientation="vertical">
@@ -149,7 +152,8 @@
                 </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
-    </RelativeLayout>
+        </LinearLayout>
+    </ScrollView>
+
 
 </layout>

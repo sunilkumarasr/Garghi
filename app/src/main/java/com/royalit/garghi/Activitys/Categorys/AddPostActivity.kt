@@ -21,6 +21,8 @@ import androidx.activity.result.contract.ActivityResultContracts.RequestMultiple
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.AdaptersAndModels.AddPostResponse
@@ -112,7 +114,29 @@ class AddPostActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), true)
+
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
         inits()
 
@@ -283,7 +307,11 @@ class AddPostActivity : AppCompatActivity() {
         val title_ =binding.titleEdit.text?.trim().toString()
         val desctiption_ =binding.desctiptionEdit.text?.trim().toString()
         val phoneNumber_ =binding.phoneNumberEdit.text?.trim().toString()
-        val landLineNumber_ =binding.landLineNumberEdit.text?.trim().toString()
+        val landLineNumber_
+        = binding.landLineNumberEdit.text
+            ?.toString()
+            ?.trim()
+            .orEmpty()
         val email_ =binding.emailEdit.text?.trim().toString()
         val address_ =binding.addressEdit.text?.trim().toString()
         val aboutCompany_ =binding.aboutCompanyEdit.text?.trim().toString()
@@ -306,10 +334,7 @@ class AddPostActivity : AppCompatActivity() {
             ViewController.showToast(applicationContext, "Enter phone Number")
             return
         }
-        if(landLineNumber_.isEmpty()){
-            ViewController.showToast(applicationContext, "Enter Land Line Number")
-            return
-        }
+
         if(email_.isEmpty()){
             ViewController.showToast(applicationContext, "Enter email")
             return

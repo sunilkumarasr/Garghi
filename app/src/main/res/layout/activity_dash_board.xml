@@ -24,10 +24,11 @@
                 android:id="@+id/bottom_navigation"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/white"
                 app:menu="@menu/menu_bottom"
                 app:itemIconTint="@color/black"
                 app:itemTextColor="@color/black"
-                android:background="@color/white"/>
+                app:labelVisibilityMode="labeled" />
         </FrameLayout>
 
 

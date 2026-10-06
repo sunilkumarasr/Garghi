@@ -3,7 +3,10 @@ package com.royalit.garghi.Logins
 import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import android.view.inputmethod.InputMethodManager
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.tasks.OnCompleteListener
 import com.google.firebase.messaging.FirebaseMessaging
 import com.royalit.garghi.AdaptersAndModels.LoginRequest
@@ -26,6 +29,28 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
+
         binding.txtForgot.setOnClickListener {
             startActivity(Intent(this@LoginActivity, ForgotActivity::class.java))
         }
@@ -38,6 +63,7 @@ class LoginActivity : AppCompatActivity() {
             if(!ViewController.noInterNetConnectivity(applicationContext)){
                 ViewController.showToast(applicationContext, "Please check your connection ")
             }else{
+                hideKeyboard()
                 loginApi()
             }
         }
@@ -54,6 +80,18 @@ class LoginActivity : AppCompatActivity() {
             Log.e("FCM_TOKEN", "FCM Token: ${task.result}")
         })
 
+    }
+
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        inputMethodManager.hideSoftInputFromWindow(
+            binding.passwordEdit.windowToken,
+            0
+        )
+
+        binding.passwordEdit.clearFocus()
     }
 
 

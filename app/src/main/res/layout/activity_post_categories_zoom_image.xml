@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/zoomRoot"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical"
+    tools:context=".Activitys.Categorys.PostCategoriesZoomImageActivity">
+
+    <TextView
+        android:id="@+id/btnClose"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:contentDescription="Close image"
+        android:gravity="center"
+        android:text="✕"
+        android:textColor="#FFFFFF"
+        android:textSize="24sp" />
+
+    <com.royalit.garghi.AdaptersAndModels.Categorys.ZoomImageView
+        android:id="@+id/imgZoom"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:contentDescription="Zoomable image" />
+
+</LinearLayout>

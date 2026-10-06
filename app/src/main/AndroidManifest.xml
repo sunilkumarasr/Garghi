@@ -150,8 +150,22 @@
             android:name=".Logins.LoginActivity"
             android:exported="false" />
         <activity
+            android:name=".Activitys.SubscriptionActivity"
+            android:exported="false" />
+        <activity
+            android:name=".Activitys.MySubscriptionActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="false" />
+        <activity
+            android:name=".Activitys.SubscriptionDetailsActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
+        <activity
+            android:name=".Activitys.Categorys.PostCategoriesZoomImageActivity"
+            android:exported="false"
+            android:windowSoftInputMode="adjustResize" />
         <activity
             android:name=".Activitys.SplashActivity"
             android:exported="true"
@@ -186,6 +200,8 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A" />
+
+
     </application>
 
 </manifest>

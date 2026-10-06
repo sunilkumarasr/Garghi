@@ -6,14 +6,14 @@ plugins {
 
 android {
     namespace = "com.royalit.garghi"
-    compileSdk = 35
+    compileSdk = 36
 
     defaultConfig {
         applicationId = "com.royalit.garghi"
         minSdk = 24
-        targetSdk = 35
-        versionCode = 3
-        versionName = "1.2"
+        targetSdk = 36
+        versionCode = 5
+        versionName = "1.5"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }

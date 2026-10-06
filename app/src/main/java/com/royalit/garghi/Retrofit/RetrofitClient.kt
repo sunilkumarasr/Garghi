@@ -13,6 +13,7 @@ object RetrofitClient {
     private const val BASE_URL = "https://garghi.com/api/"
 
     const val Image_Path = "https://garghi.com/garghi_new/"
+    const val Image_PathCat = "https://garghi.com/"
 
     const val MapKey = "AIzaSyCMpzC9h1qmCRgC6SYHVzKhn4vFHztXp-A"
 

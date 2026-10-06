@@ -63,6 +63,7 @@
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:maxLines="4"
                     android:text="your location..."
                     android:padding="10dp"
                     android:textSize="13sp"
@@ -76,45 +77,54 @@
                     android:src="@drawable/right_arrow_ic"/>
             </LinearLayout>
 
-            <com.denzcoskun.imageslider.ImageSlider
-                android:id="@+id/imageSlider"
+            <androidx.core.widget.NestedScrollView
                 android:layout_width="match_parent"
-                android:layout_height="180dp"
-                android:layout_marginTop="10dp"
-                app:iss_auto_cycle="true"
-                app:iss_delay="2000"
-                app:iss_indicator_align="BOTTOM"
-                app:iss_period="2000"
-                app:iss_text_color="@color/black"
-                app:iss_title_background="@color/trance"/>
+                android:layout_height="match_parent">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+                    <com.denzcoskun.imageslider.ImageSlider
+                        android:id="@+id/imageSlider"
+                        android:layout_width="match_parent"
+                        android:layout_height="210dp"
+                        android:layout_marginTop="10dp"
+                        app:iss_auto_cycle="true"
+                        app:iss_delay="2000"
+                        app:iss_indicator_align="BOTTOM"
+                        app:iss_period="2000"
+                        app:iss_text_color="@color/black"
+                        app:iss_title_background="@color/trance"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/Crecyclerview"
-                android:layout_marginTop="5dp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/Crecyclerview"
+                        android:layout_marginTop="5dp"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"/>
 
-            <androidx.recyclerview.widget.RecyclerView
-                android:id="@+id/recyclerview"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:id="@+id/recyclerview"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"/>
 
-            <TextView
-                android:visibility="gone"
-                android:id="@+id/txtNoData"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_gravity="center"
-                android:gravity="center"
-                android:text="No data found"
-                android:textColor="@color/blue"
-                android:textSize="25sp"
-                android:fontFamily="@font/teachers_semibold"
-                android:textAlignment="center"/>
+                    <TextView
+                        android:visibility="gone"
+                        android:id="@+id/txtNoData"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_gravity="center"
+                        android:gravity="center"
+                        android:text="No data found"
+                        android:textColor="@color/blue"
+                        android:textSize="25sp"
+                        android:fontFamily="@font/teachers_semibold"
+                        android:textAlignment="center"/>
+
+                </LinearLayout>
+            </androidx.core.widget.NestedScrollView>
 
         </LinearLayout>
 
     </RelativeLayout>
-
 
 </layout>

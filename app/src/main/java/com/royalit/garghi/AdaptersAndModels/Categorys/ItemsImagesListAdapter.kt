@@ -37,7 +37,7 @@ class ItemsImagesListAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = items[position]
-        Glide.with(holder.imgLogo).load(RetrofitClient.Image_Path+item.additionalImage.toString()).into(holder.imgLogo)
+        Glide.with(holder.imgLogo).load(RetrofitClient.Image_PathCat+item.additionalImage.toString()).into(holder.imgLogo)
 
         Log.e("im__g",item.additionalImage.toString())
 

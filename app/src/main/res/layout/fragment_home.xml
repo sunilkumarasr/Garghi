@@ -31,6 +31,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:visibility="invisible"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -87,19 +88,10 @@
                     </LinearLayout>
                 </LinearLayout>
 
-                <androidx.cardview.widget.CardView
+                <androidx.viewpager2.widget.ViewPager2
+                    android:id="@+id/viewPagerBanner"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="15dp"
-                    android:layout_marginEnd="15dp"
-                    android:paddingTop="5dp"
-                    app:cardCornerRadius="18dp">
-                    <androidx.viewpager2.widget.ViewPager2
-                        android:id="@+id/viewPagerBanner"
-                        android:layout_width="match_parent"
-                        android:layout_height="180dp" />
-                </androidx.cardview.widget.CardView>
-
+                    android:layout_height="220dp" />
 
                 <androidx.recyclerview.widget.RecyclerView
                     android:id="@+id/recyclerview"
@@ -151,6 +143,23 @@
                         android:layout_marginBottom="10dp" />
                 </LinearLayout>
 
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginBottom="10dp"
+                    android:layout_marginStart="10dp"
+                    android:fontFamily="@font/teachers_semibold"
+                    android:text="Testimonials"
+                    android:textColor="@color/black"
+                    android:textSize="17sp" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/recyclerviewTestimonials"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white"
+                    android:padding="10dp" />
 
             </LinearLayout>
         </androidx.core.widget.NestedScrollView>

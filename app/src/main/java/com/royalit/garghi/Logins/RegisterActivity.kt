@@ -7,9 +7,12 @@ import android.text.TextWatcher
 import android.util.Log
 import android.util.Patterns
 import android.view.View
+import android.view.inputmethod.InputMethodManager
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
 import com.google.android.gms.maps.GoogleMap
@@ -56,6 +59,28 @@ class RegisterActivity : AppCompatActivity(){
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
 
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
+
         stateList()
         citysList()
 
@@ -75,6 +100,7 @@ class RegisterActivity : AppCompatActivity(){
             if(!ViewController.noInterNetConnectivity(applicationContext)){
                 ViewController.showToast(applicationContext, "Please check your connection ")
             }else{
+                hideKeyboard()
                 registerApi()
             }
         }
@@ -83,6 +109,19 @@ class RegisterActivity : AppCompatActivity(){
             finish()
         }
 
+    }
+
+
+    private fun hideKeyboard() {
+        val inputMethodManager =
+            getSystemService(INPUT_METHOD_SERVICE) as InputMethodManager
+
+        inputMethodManager.hideSoftInputFromWindow(
+            binding.CpasswordEdit.windowToken,
+            0
+        )
+
+        binding.CpasswordEdit.clearFocus()
     }
 
     private fun registerApi() {

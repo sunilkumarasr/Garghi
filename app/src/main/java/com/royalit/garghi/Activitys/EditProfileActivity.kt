@@ -14,6 +14,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
+import androidx.core.view.ViewCompat
+import androidx.core.view.WindowInsetsCompat
 import com.bumptech.glide.Glide
 import com.google.android.gms.location.FusedLocationProviderClient
 import com.google.android.gms.location.LocationServices
@@ -66,7 +68,28 @@ class EditProfileActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), false)
+        ViewController.changeStatusBarColor(this, ContextCompat.getColor(this, R.color.bottom_myservice), true)
+
+        val root = binding.root
+        val left = root.paddingLeft
+        val top = root.paddingTop
+        val right = root.paddingRight
+        val bottom = root.paddingBottom
+
+        ViewCompat.setOnApplyWindowInsetsListener(root) { view, insets ->
+            val bars = insets.getInsets(WindowInsetsCompat.Type.systemBars())
+
+            view.setPadding(
+                left + bars.left,
+                top + bars.top,
+                right + bars.right,
+                bottom + bars.bottom
+            )
+
+            insets
+        }
+
+        ViewCompat.requestApplyInsets(root)
 
         inits()
 
@@ -164,8 +187,13 @@ class EditProfileActivity : AppCompatActivity() {
                         binding.nameEdit.setText(rsp.data?.name)
                         binding.emailEdit.setText(rsp.data?.email)
                         binding.mobileEdit.setText(rsp.data?.phone)
-                        rsp.data?.country_code?.toInt()
-                            ?.let { binding.ccp.setCountryForPhoneCode(it) }
+                        rsp.data?.country_code
+                            ?.trim()
+                            ?.removePrefix("+")
+                            ?.toIntOrNull()
+                            ?.let { code ->
+                                binding.ccp.setCountryForPhoneCode(code)
+                            }
                         binding.setLocation.setText(rsp.data?.location)
                         SelectLocations = rsp.data?.location.toString()
                         //binding.editLocations.setText(rsp.data?.location)

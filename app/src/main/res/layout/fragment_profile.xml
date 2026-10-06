@@ -343,7 +343,73 @@
                 </LinearLayout>
             </androidx.cardview.widget.CardView>
 
-            <!-- Logout -->
+            <!-- subscriptions section -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="24dp"
+                android:layout_marginTop="26dp"
+                android:layout_marginEnd="24dp"
+                android:fontFamily="@font/teachers_semibold"
+                android:text="subscriptions"
+                android:textAllCaps="true"
+                android:textColor="@color/colorPrimary"
+                android:textSize="12sp" />
+
+        <androidx.cardview.widget.CardView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginEnd="16dp"
+            app:cardBackgroundColor="@color/white"
+            app:cardCornerRadius="16dp"
+            app:cardElevation="1dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <LinearLayout
+                android:id="@+id/linearSubscription"
+                style="@style/ProfileMenuRow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ProfileMenuIcon"
+                    android:src="@drawable/subscription" />
+
+                <TextView
+                    style="@style/ProfileMenuText"
+                    android:text="Subscription" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ProfileMenuArrow"
+                    android:src="@drawable/right_arrow_ic" />
+            </LinearLayout>
+
+            <View style="@style/ProfileMenuDivider" />
+
+            <LinearLayout
+                android:id="@+id/linearMySubscription"
+                style="@style/ProfileMenuRow">
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ProfileMenuIcon"
+                    android:src="@drawable/ecommerce" />
+
+                <TextView
+                    style="@style/ProfileMenuText"
+                    android:text="My Subscription" />
+
+                <androidx.appcompat.widget.AppCompatImageView
+                    style="@style/ProfileMenuArrow"
+                    android:src="@drawable/right_arrow_ic" />
+            </LinearLayout>
+        </LinearLayout>
+        </androidx.cardview.widget.CardView>
+
+
+        <!-- Logout -->
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
