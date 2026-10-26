@@ -90,7 +90,8 @@ class SubCategoriesItemsAdapter(
 
     //search
     fun updateList(newItems: List<SubCategoriesItemsModel>) {
-        items = newItems
+        items = newItems.toList()
         notifyDataSetChanged()
     }
+
 }

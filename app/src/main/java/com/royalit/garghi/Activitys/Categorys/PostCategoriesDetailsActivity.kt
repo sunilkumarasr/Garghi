@@ -122,6 +122,10 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
             checkAndRequestPermission()
         }
 
+        binding.imgWhatsApp.setOnClickListener {
+            whatsApp()
+        }
+
         binding.cardEnquiry.setOnClickListener {
             enqueryDailouge()
         }
@@ -191,6 +195,9 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
             Html.fromHtml(postDetails.data?.product?.services ?: "", Html.FROM_HTML_MODE_LEGACY)
 
         mobileNUmber = postDetails.data?.product?.mobile ?: ""
+
+        binding.ratingBar.rating =
+            postDetails.data?.product?.starRating?.toFloatOrNull() ?: 0f
 
         if (postDetails.data?.product?.certified.equals("1")) {
             binding.imgCertified.visibility = View.VISIBLE
@@ -283,6 +290,22 @@ class PostCategoriesDetailsActivity : AppCompatActivity() {
         val phoneNumber = mobileNUmber
         val callIntent = Intent(Intent.ACTION_CALL, Uri.parse("tel:$phoneNumber"))
         startActivity(callIntent)
+    }
+
+    private fun whatsApp() {
+        val phoneNumber = mobileNUmber.trim()
+
+        try {
+            val url = "https://wa.me/$phoneNumber"
+            val intent = Intent(Intent.ACTION_VIEW, Uri.parse(url))
+            startActivity(intent)
+        } catch (e: Exception) {
+            Toast.makeText(
+                this,
+                "Unable to open WhatsApp",
+                Toast.LENGTH_SHORT
+            ).show()
+        }
     }
 
     //enquery

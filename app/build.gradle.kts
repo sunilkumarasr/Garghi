@@ -86,4 +86,7 @@ dependencies {
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-analytics")
 
+    implementation("com.razorpay:checkout:1.6.40")
+
+
 }

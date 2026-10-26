@@ -125,10 +125,17 @@ class CategoriesBasedItemsListActivity : AppCompatActivity() {
         }
 
         binding.editSearch.addTextChangedListener(object : TextWatcher {
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) {
-                filter(s.toString())
+
+            override fun beforeTextChanged(
+                s: CharSequence?, start: Int, count: Int, after: Int
+            ) {}
+
+            override fun onTextChanged(
+                s: CharSequence?, start: Int, before: Int, count: Int
+            ) {
+                filter(s?.toString()?.trim().orEmpty())
             }
+
             override fun afterTextChanged(s: Editable?) {}
         })
 
@@ -324,19 +331,13 @@ class CategoriesBasedItemsListActivity : AppCompatActivity() {
     //search
     private fun filter(text: String) {
         val filteredList = categoriesList.filter { item ->
-            item.services.contains(text, ignoreCase = true)
+            item.title.orEmpty().contains(text, ignoreCase = true)
         }
 
-        if (filteredList.isEmpty()) {
-            binding.txtNoData.visibility = View.VISIBLE
-        } else {
-            binding.txtNoData.visibility = View.GONE
-        }
+        catAdapter.updateList(filteredList)
 
-        // Update list only if catAdapter is initialized
-        if (::catAdapter.isInitialized) {
-            catAdapter.updateList(filteredList)
-        }
+        binding.txtNoData.visibility =
+            if (filteredList.isEmpty()) View.VISIBLE else View.GONE
     }
 
     private fun checkAndRequestPermission() {

@@ -194,11 +194,28 @@
                                 android:textSize="15sp" />
                         </LinearLayout>
 
+
+                        <androidx.appcompat.widget.AppCompatRatingBar
+                            android:id="@+id/ratingBar"
+                            style="?android:attr/ratingBarStyleSmall"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_below="@+id/lineartxt3"
+                            android:layout_marginStart="15dp"
+                            android:layout_marginTop="10dp"
+                            android:numStars="5"
+                            android:stepSize="0.5"
+                            android:rating="0"
+                            android:isIndicator="true"
+                            android:progressTint="@color/subscription_active"
+                            android:progressBackgroundTint="@color/gray" />
+
+
                         <LinearLayout
                             android:id="@+id/linearbt"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_below="@id/lineartxt3"
+                            android:layout_below="@id/ratingBar"
                             android:layout_marginTop="10dp"
                             android:layout_marginBottom="10dp"
                             android:orientation="horizontal"
@@ -264,6 +281,13 @@
                                         android:textSize="15sp" />
                                 </LinearLayout>
                             </androidx.cardview.widget.CardView>
+
+                            <androidx.appcompat.widget.AppCompatImageView
+                                android:id="@+id/imgWhatsApp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="45dp"
+                                android:layout_marginTop="5dp"
+                                android:src="@drawable/whatsapp_ic"/>
                         </LinearLayout>
                     </RelativeLayout>
                 </androidx.cardview.widget.CardView>

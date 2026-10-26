@@ -1,7 +1,7 @@
 package com.royalit.garghi.AdaptersAndModels
 
 data class SubscriptionPlan(
-    val id: Int,
+    val id: String,
     val title: String,
     val duration: Int,
     val duration_type: String,

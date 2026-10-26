@@ -14,6 +14,8 @@ import com.royalit.garghi.AdaptersAndModels.Citys.CitysModel
 import com.royalit.garghi.AdaptersAndModels.ContactUsResponse
 import com.royalit.garghi.AdaptersAndModels.CreatePasswordRequest
 import com.royalit.garghi.AdaptersAndModels.CreatePasswordResponse
+import com.royalit.garghi.AdaptersAndModels.CreateSubscriptionOrderRequest
+import com.royalit.garghi.AdaptersAndModels.CreateSubscriptionOrderResponse
 import com.royalit.garghi.AdaptersAndModels.DeletePostImageModel
 import com.royalit.garghi.AdaptersAndModels.DeleteProductImageModel
 import com.royalit.garghi.AdaptersAndModels.EmailRequest
@@ -48,6 +50,8 @@ import com.royalit.garghi.AdaptersAndModels.RegisterResponse
 import com.royalit.garghi.AdaptersAndModels.SalesBannersModel
 import com.royalit.garghi.AdaptersAndModels.TermsConditionsResponse
 import com.royalit.garghi.AdaptersAndModels.SalesHome.SaleModel
+import com.royalit.garghi.AdaptersAndModels.SaveSubscriptionOrderRequest
+import com.royalit.garghi.AdaptersAndModels.SaveSubscriptionOrderResponse
 import com.royalit.garghi.AdaptersAndModels.SocialMediaModel
 import com.royalit.garghi.AdaptersAndModels.State.StateModel
 import com.royalit.garghi.AdaptersAndModels.SubCategoriesItems.SubCategoriesItemsModel
@@ -313,6 +317,13 @@ interface ApiInterface {
 
     @GET("subscription_list")
     fun subscriptionApi(): Call<List<SubscriptionPlan>>
+
+    @POST("create_subscription_order")
+    fun createSubscriptionOrder(@Body createSubscriptionOrderRequest: CreateSubscriptionOrderRequest): Call<CreateSubscriptionOrderResponse>
+
+    @POST("save_subscription_order")
+    fun saveSubscriptionOrder(@Body saveSubscriptionOrderRequest: SaveSubscriptionOrderRequest): Call<SaveSubscriptionOrderResponse>
+
 
     @GET("my_subscriptions")
     fun mySubscriptionsApi(

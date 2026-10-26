@@ -28,6 +28,7 @@ data class ProductDataPost(
     @SerializedName("location") var location: String? = null,
     @SerializedName("certified") var certified: String? = null,
     @SerializedName("verified") var verified: String? = null,
+    @SerializedName("star_rating") var starRating: String? = null,
     @SerializedName("about") var about: String? = null,
     @SerializedName("services") var services: String? = null,
     @SerializedName("state") var state: String? = null,
