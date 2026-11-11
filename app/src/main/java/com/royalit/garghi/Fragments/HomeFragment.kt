@@ -16,21 +16,17 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.royalit.garghi.Activitys.Categorys.CategoriesBasedItemsListActivity
 import com.royalit.garghi.Activitys.DashBoardActivity
 import com.royalit.garghi.Activitys.JobAlerts.JobAlertDetailsActivity
-import com.royalit.garghi.Activitys.SplashActivity
 import com.royalit.garghi.Activitys.WalletActivity
 import com.royalit.garghi.AdaptersAndModels.BannerAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
-import com.royalit.garghi.AdaptersAndModels.EnquieryPostModel
 import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
 import com.royalit.garghi.AdaptersAndModels.Home.HomeBannersModel
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertModel
-import com.royalit.garghi.AdaptersAndModels.MyPostEnquieryAdapter
 import com.royalit.garghi.AdaptersAndModels.TestimonialModel
 import com.royalit.garghi.AdaptersAndModels.TestimonialsAdapter
 import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
-import com.royalit.garghi.Logins.LoginActivity
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.FragmentHomeBinding
 

@@ -25,6 +25,7 @@ import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
 import com.royalit.garghi.Activitys.DashBoardActivity
+import com.royalit.garghi.Activitys.SubscriptionActivity
 import com.royalit.garghi.AdaptersAndModels.AddPostResponse
 import com.royalit.garghi.AdaptersAndModels.CatListAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
@@ -423,10 +424,15 @@ class AddPostActivity : AppCompatActivity() {
                 if (response.isSuccessful) {
                     val addResponse = response.body()
                     if (addResponse != null && addResponse.status.equals("success")) {
-                        ViewController.showToast(applicationContext, "success")
-                        startActivity(Intent(this@AddPostActivity, DashBoardActivity::class.java))
+                        if (addResponse.has_active_subscription.equals("1")){
+                            ViewController.showToast(applicationContext, "success")
+                            startActivity(Intent(this@AddPostActivity, DashBoardActivity::class.java))
+                        }else{
+                            ViewController.showToast(applicationContext, addResponse?.message)
+                            startActivity(Intent(this@AddPostActivity, SubscriptionActivity::class.java))
+                        }
                     } else {
-                        ViewController.showToast(applicationContext, "Failed")
+                        ViewController.showToast(applicationContext, addResponse?.message)
                     }
                 } else {
                     ViewController.showToast(applicationContext, "Error: ${response.code()}")

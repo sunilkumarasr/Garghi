@@ -35,7 +35,6 @@ import com.royalit.garghi.AdaptersAndModels.EnqueryResponse
 import com.royalit.garghi.AdaptersAndModels.PostItemDetailsModel
 import com.royalit.garghi.Config.Preferences
 import com.royalit.garghi.Config.ViewController
-import com.royalit.garghi.Logins.OTPActivity
 import com.royalit.garghi.R
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.ActivityPostViewBinding

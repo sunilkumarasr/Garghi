@@ -4,5 +4,6 @@ import com.google.gson.annotations.SerializedName
 
 data class AddPostResponse(
     @SerializedName("status"  ) var status  : String?    = null,
-    @SerializedName("message" ) var message : String? = null
+    @SerializedName("message" ) var message : String? = null,
+    @SerializedName("has_active_subscription" ) var has_active_subscription : String? = null
 )

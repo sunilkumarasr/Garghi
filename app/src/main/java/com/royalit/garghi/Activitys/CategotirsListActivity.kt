@@ -5,24 +5,18 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.activity.enableEdgeToEdge
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
 import androidx.core.view.ViewCompat
 import androidx.core.view.WindowInsetsCompat
 import androidx.recyclerview.widget.GridLayoutManager
-import com.bumptech.glide.Glide.init
 import com.royalit.garghi.Activitys.Categorys.CategoriesBasedItemsListActivity
-import com.royalit.garghi.Activitys.JobAlerts.JobAlertDetailsActivity
 import com.royalit.garghi.AdaptersAndModels.CategoriesListAdapter
 import com.royalit.garghi.AdaptersAndModels.Categorys.CategoriesModel
-import com.royalit.garghi.AdaptersAndModels.Home.HomeCategoriesAdapter
-import com.royalit.garghi.AdaptersAndModels.JobAlerts.JobAlertHomeAdapter
 import com.royalit.garghi.Config.ViewController
 import com.royalit.garghi.R
 import com.royalit.garghi.Retrofit.RetrofitClient
 import com.royalit.garghi.databinding.ActivityCategotirsListBinding
-import com.royalit.garghi.databinding.ActivityEnquiryProductBinding
 
 class CategotirsListActivity : AppCompatActivity() {
 
